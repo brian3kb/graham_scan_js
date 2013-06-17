@@ -1,19 +1,24 @@
 ## _JavaScript Graham's Scan Convex Hull Algorithm_
 
-_I required a simple implementation to calculate a convex hull from a given array of x, y coordinates,
+I required a simple implementation to calculate a convex hull from a given array of x, y coordinates,
 the convex hull's in js I found either were a little buggy, or required dependencies on other libraries.
-This implementation just takes the x,y coordinates, no other libraries are needed._
+This implementation just takes the x,y coordinates, no other libraries are needed.
 
-_The two examples show how to utilise with Google Maps._
+The two examples show how to utilise with Google Maps.
+
+View live examples:
+
+https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example1.html
+https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example2.html
 
 
 ## Testing
 
-_The source is tested with qUnit, tests executed with Google's JS Test Driver._
+The source is tested with qUnit, tests executed with Google's JS Test Driver.
 
 ## Deploying
 
-_Include the source or the minified js and off you go._
+Include the source or the minified js and off you go.
 
 
 ## Usage
@@ -35,4 +40,4 @@ http://en.wikipedia.org/wiki/Graham_scan
 
 ## License
 
-_MIT License_
+MIT License
