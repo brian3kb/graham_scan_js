@@ -1,4 +1,4 @@
-# _JavaScript Graham's Scan Convex Hull Algorithm_
+## _JavaScript Graham's Scan Convex Hull Algorithm_
 
 _I required a simple implementation to calculate a convex hull from a given array of x, y coordinates,
 the convex hull's in js I found either were a little buggy, or required dependencies on other libraries.
@@ -6,12 +6,6 @@ This implementation just takes the x,y coordinates, no other libraries are neede
 
 _The two examples show how to utilise with Google Maps._
 
-## Project Setup
-
-_How do I, as a developer, start working on the project?_
-
-1. _What dependencies does it have (where are they expressed) and how do I install them?_
-2. _How can I see the project working before I change anything?_
 
 ## Testing
 
