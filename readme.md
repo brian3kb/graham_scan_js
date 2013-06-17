@@ -1,4 +1,4 @@
-## _JavaScript Graham's Scan Convex Hull Algorithm_
+## JavaScript Graham's Scan Convex Hull Algorithm
 
 I required a simple implementation to calculate a convex hull from a given array of x, y coordinates,
 the convex hull's in js I found either were a little buggy, or required dependencies on other libraries.
@@ -24,12 +24,15 @@ Include the source or the minified js and off you go.
 ## Usage
 
 > //Create a new instance.
+
 > var convexHull = new ConvexHullGrahamScan();
 >
 > //add points (needs to be done for each point, a foreach loop on the input array can be used.
+
 > convexHull.addPoint(x, y);
 >
 > //getHull() returns the array of points that make up the convex hull.
+
 > var hullPoints = convexHull.getHull();
 
 
