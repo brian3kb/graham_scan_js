@@ -12,16 +12,16 @@ https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example1.
 https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example2.html
 
 
-## Testing
+### Testing
 
 The source is tested with qUnit, tests executed with Google's JS Test Driver.
 
-## Deploying
+### Deploying
 
 Include the source or the minified js and off you go.
 
 
-## Usage
+### Usage
 
     //Create a new instance.
     var convexHull = new ConvexHullGrahamScan();
@@ -33,11 +33,11 @@ Include the source or the minified js and off you go.
     var hullPoints = convexHull.getHull();
 
 
-## Sources used to create
+### Sources used to create
 
 http://www.personal.kent.edu/~rmuhamma/Compgeometry/MyCG/ConvexHull/GrahamScan/grahamScan.htm
 http://en.wikipedia.org/wiki/Graham_scan
 
-## License
+### License
 
 MIT License
