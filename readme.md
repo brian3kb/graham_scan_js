@@ -23,17 +23,14 @@ Include the source or the minified js and off you go.
 
 ## Usage
 
-> //Create a new instance.
+    //Create a new instance.
+    var convexHull = new ConvexHullGrahamScan();
 
-> var convexHull = new ConvexHullGrahamScan();
->
-> //add points (needs to be done for each point, a foreach loop on the input array can be used.
+    //add points (needs to be done for each point, a foreach loop on the input array can be used.
+    convexHull.addPoint(x, y);
 
-> convexHull.addPoint(x, y);
->
-> //getHull() returns the array of points that make up the convex hull.
-
-> var hullPoints = convexHull.getHull();
+    //getHull() returns the array of points that make up the convex hull.
+    var hullPoints = convexHull.getHull();
 
 
 ## Sources used to create
