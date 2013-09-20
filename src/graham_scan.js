@@ -141,7 +141,7 @@ ConvexHullGrahamScan.prototype = {
         this.reverse = this.points.every(function(point){
             return (point.x < 0 && point.y < 0);
         });
-        console.log(this.reverse);
+
         points = this._sortPoints();
         pointsLength = points.length;
 
