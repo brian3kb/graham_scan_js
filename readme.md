@@ -10,6 +10,7 @@ View live examples:
 
 https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example1.html
 https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example2.html
+https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example3.html
 
 
 ### Testing

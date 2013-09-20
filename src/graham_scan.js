@@ -2,6 +2,7 @@
  * Graham's Scan Convex Hull Algorithm
  * Author: Brian Barnett, brian@3kb.co.uk, http://brianbar.net/ || http://3kb.co.uk/
  * Date: 14/06/13
+ * Updated: 20/09/13
  * Description: An implementation of the Graham's Scan Convex Hull algorithm in Javascript, outlined with the following
  * formal algorithm:
  *
