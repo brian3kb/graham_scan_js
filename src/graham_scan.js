@@ -37,7 +37,7 @@
 function ConvexHullGrahamScan() {
 
     this.anchorPoint = undefined;
-
+    this.reverse = false;
     this.points = [];
 }
 
@@ -62,8 +62,14 @@ ConvexHullGrahamScan.prototype = {
 
         var angle = Math.atan2(deltaY, deltaX) * ONE_RADIAN;
 
-        if (angle > 0) {
-            angle += 360;
+        if (this.reverse){
+            if (angle < 0) {
+                angle += 360;
+            }
+        }else{
+            if (angle > 0) {
+                angle += 360;
+            }
         }
 
         return angle;
@@ -127,9 +133,16 @@ ConvexHullGrahamScan.prototype = {
     },
 
     getHull: function () {
-        var hullPoints = [];
-        var points = this._sortPoints();
-        var pointsLength = points.length;
+        var hullPoints = [],
+            points,
+            pointsLength;
+
+        this.reverse = this.points.every(function(point){
+            return (point.x < 0 && point.y < 0);
+        });
+        console.log(this.reverse);
+        points = this._sortPoints();
+        pointsLength = points.length;
 
         //If there are less than 4 points, joining these points creates a correct hull.
         if (pointsLength < 4) {
