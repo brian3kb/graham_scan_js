@@ -121,3 +121,22 @@ test('Test hull calculation.',1,function(){
 
     equal(testGSHull.getHull(), expectedHull, 'Check output hull is as expected.');
 });
+
+test('Test handling 4 points rectangular.',1, function(){
+    var expectedHull = [
+        {'y':50.157913235507706,'x':29.900512524414125},
+        {'y':50.157913235507706,'x':31.146087475586},
+        {'y':50.74029471119741,'x':31.146087475586},
+        {'y':50.74029471119741,'x':29.900512524414125}
+    ];
+    var testGSHull = new ConvexHullGrahamScan();
+    testGSHull.anchorPoint = {'y':50.157913235507706,'x':29.900512524414125};
+    testGSHull.points = [
+        {'y' : '50.157913235507706', 'x' : '29.900512524414125'},
+        {'y' : '50.74029471119741', 'x' : '31.146087475586'},
+        {'y' : '50.74029471119741', 'x' : '29.900512524414125'},
+        {'y' : '50.15791323550770611', 'x' : '31.146087475586'}
+    ];
+
+    equal(testGSHull.getHull(), expectedHull, 'Check output hull is as expected.');
+});

@@ -28,7 +28,7 @@
  * //Create a new instance.
  * var convexHull = new ConvexHullGrahamScan();
  *
- * //add points (needs to be done for each point, a foreach loop on the input array can be used.
+ * //add points (needs to be done for each point, a foreach loop on the input array can be used.)
  * convexHull.addPoint(item.lon, item.lat);
  *
  * //getHull() returns the array of points that make up the convex hull.
@@ -64,11 +64,11 @@ ConvexHullGrahamScan.prototype = {
         var angle = Math.atan2(deltaY, deltaX) * ONE_RADIAN;
 
         if (this.reverse){
-            if (angle < 0) {
+            if (angle <= 0) {
                 angle += 360;
             }
         }else{
-            if (angle > 0) {
+            if (angle >= 0) {
                 angle += 360;
             }
         }

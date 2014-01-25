@@ -11,6 +11,7 @@ View live examples:
 https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example1.html
 https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example2.html
 https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example3.html
+https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example4.html
 
 
 ### Testing
@@ -27,7 +28,7 @@ Include the source or the minified js and off you go.
     //Create a new instance.
     var convexHull = new ConvexHullGrahamScan();
 
-    //add points (needs to be done for each point, a foreach loop on the input array can be used.
+    //add points (needs to be done for each point, a foreach loop on the input array can be used.)
     convexHull.addPoint(x, y);
 
     //getHull() returns the array of points that make up the convex hull.
