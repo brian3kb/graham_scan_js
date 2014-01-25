@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <title>JavaScript Graham's Scan Convex Hull Algorithm</title>
+</head>
+<body>
+<aside>
+    <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading gh-title">JavaScript Graham's Scan <br/>Convex Hull Algorithm</a>
+        <p>Simple implementation to calculate a convex hull from a given array of x, y coordinates,
+            the convex hull's in js I found either were a little buggy, or required dependencies on other libraries.
+            This implementation just takes the x,y coordinates, no other libraries are needed.</p>
+        <a class="pure-menu-heading">Examples</a>
+
+        <ul>
+            <li><a href="pages/gmaps_example1.html">One</a></li>
+            <li><a href="pages/gmaps_example2.html">Two</a></li>
+            <li><a href="pages/gmaps_example3.html">Three</a></li>
+            <li><a href="pages/gmaps_example4.html">Four</a></li>
+            <li class="pure-menu-heading">Usage + Download</li>
+            <li class="pure-menu-selected"><a href="index.html">Usage + About</a></li>
+            <li><a href="http://raw.github.com/brian3kb/graham_scan_js/master/graham_scan.min.js">Download minified js</a></li>
+            <li><a href="http://raw.github.com/brian3kb/graham_scan_js/master/src/graham_scan.js">Download source js</a></li>
+            <li class="pure-menu-heading">Links</li>
+            <li><a href="http://github.com/brian3kb/graham_scan_js">GitHub Project</a></li>
+            <li><a href="http://blog.brianbar.net">Blog</a></li>
+        </ul>
+    </div>
+</aside>
+
+<main>
+    <div class="usage">
+    <h2>Usage</h2>
+
+        <p>Include either the source or the minified JavaScript file in your HMTL,
+        no libraries are required for the calculation, but you will need to running
+        on ECMAScript 5/ JavaScript 1.6 capable browsers.</p>
+
+        <p>The below code is how to get the convex hull points array from your source points.</p>
+
+        <pre class="code">
+
+    //Create a new instance.
+    var convexHull = new ConvexHullGrahamScan();
+
+    //add points
+    //(needs to be done for each point, a foreach
+    //loop on the input array can be used.)
+    convexHull.addPoint(x, y);
+
+    //getHull() returns the array of points
+    //that make up the convex hull.
+    var hullPoints = convexHull.getHull();
+
+        </pre>
+
+        <p>The examples use Google Maps, so take a look at those to see how the hull works
+            together with the service.</p>
+
+        <h2>About</h2>
+        <p>The solution is based on the following formal algorithm taken from 
+            <a href="http://www.personal.kent.edu/~rmuhamma/Compgeometry/MyCG/ConvexHull/GrahamScan/grahamScan.htm" target="_blank">Rashid Bin Muhammad's Kent State University</a>
+            site.</p>
+    <pre class="code">
+ GRAHAM_SCAN(Q)
+    
+     1. Find p0 in Q with minimum y-coordinate
+        (and minimum x-coordinate if there are ties).
+
+     2. Sort the remaining points of Q
+        (that is, Q − {p0}) by polar angle in
+        counterclockwise order with respect to p0.
+
+     3. TOP [S] = 0  ▷ Lines 3-6 initialize the stack
+        to contain, from bottom to top, first three
+        points.
+
+     4. PUSH (p0, S)
+
+     5. PUSH (p1, S)
+
+     6. PUSH (p2, S)
+
+     7. for i = 3 to m  ▷ Perform test for each
+        point p3, ..., pm.
+
+     8.  do while the angle between NEXT_TO_TOP[S],
+        TOP[S], and pi makes a non-left turn
+        ▷ remove if not a vertex
+
+     9.   do POP(S)
+
+     10.   PUSH (S, pi)
+
+     11.   return S
+    </pre>
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="http://www.personal.kent.edu/~rmuhamma/Compgeometry/MyCG/ConvexHull/GrahamScan/grahamScan.htm" target="_blank">Rashid Bin Muhammad's Kent State University</a></li>
+            <li><a href="http://en.wikipedia.org/wiki/Graham_scan" target="_blank">Graham Scan Wikipedia Article</a></li>
+        </ul>
+
+        <h2>License</h2>
+
+        MIT License
+    </div>
+</main>
+</body>
+</html>
