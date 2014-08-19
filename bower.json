@@ -7,18 +7,18 @@
   ],
   "description": "Implementation of the Graham Scan algorithm to calculate a convex hull from a given array of x, y coordinates.",
   "main": "graham_scan.min.js",
-  "keywords": [
-    "convex",
-    "hull"
-  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "example",
-    "qunit-lib",
-    "node_modules",
-    "bower_components",
     "test",
-    "tests"
+    "*.md",
+    "*.jstd",
+    ".gitignore",
+    "example",
+    "qunit-lib"
+  ],
+  "keywords": [
+    "convex",
+    "hull"
   ]
 }
