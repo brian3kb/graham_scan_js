@@ -1,11 +1,6 @@
 {
   "name": "graham_scan",
-  "version": "1.0.0",
-  "homepage": "http://brian3kb.github.io/graham_scan_js",
-  "authors": [
-    "Brian Barnett <brian@3kb.co.uk>"
-  ],
-  "description": "Implementation of the Graham Scan algorithm to calculate a convex hull from a given array of x, y coordinates.",
+  "version": "1.0.1",
   "main": "graham_scan.min.js",
   "license": "MIT",
   "ignore": [
@@ -20,5 +15,11 @@
   "keywords": [
     "convex",
     "hull"
-  ]
+  ],
+  "homepage": "http://brian3kb.github.io/graham_scan_js",
+  "authors": [
+    "Brian Barnett <brian@3kb.co.uk>"
+  ],
+  "description": "Implementation of the Graham Scan algorithm to calculate a convex hull from a given array of x, y coordinates.",
+
 }
