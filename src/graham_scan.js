@@ -36,12 +36,10 @@
  */
 
 function ConvexHullGrahamScan() {
-
     this.anchorPoint = undefined;
     this.reverse = false;
     this.points = [];
 }
-
 
 ConvexHullGrahamScan.prototype = {
 
@@ -181,3 +179,9 @@ ConvexHullGrahamScan.prototype = {
         }
     }
 };
+
+if (typeof define === 'function' && define.amd) {
+    define(function() {
+        return ConvexHullGrahamScan;
+    });
+}
