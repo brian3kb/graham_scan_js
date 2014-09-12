@@ -1,40 +1,9 @@
 /**
  * Graham's Scan Convex Hull Algorithm
- * Author: Brian Barnett, brian@3kb.co.uk, http://brianbar.net/ || http://3kb.co.uk/
- * Date: 14/06/13
- * Updated: 20/09/13
- * Description: An implementation of the Graham's Scan Convex Hull algorithm in Javascript, outlined with the following
- * formal algorithm:
- *
- * GRAHAM_SCAN(Q)
- *
- * 1.         Find p0 in Q with minimum y-coordinate (and minimum x-coordinate if there are ties).
- * 2.         Sort the remaining points of Q (that is, Q − {p0}) by polar angle in counterclockwise order with respect to p0.
- * 3.         TOP [S] = 0                ▷ Lines 3-6 initialize the stack to contain, from bottom to top, first three points.
- * 4.         PUSH (p0, S)
- * 5.         PUSH (p1, S)
- * 6.         PUSH (p2, S)
- * 7.         for i = 3 to m             ▷ Perform test for each point p3, ..., pm.
- * 8.             do while the angle between NEXT_TO_TOP[S], TOP[S], and pi makes a non-left turn  ▷ remove if not a vertex
- * 9.                         do POP(S)
- * 10.                 PUSH (S, pi)
- * 11.       return S
- *
- *
- * Source: http://www.personal.kent.edu/~rmuhamma/Compgeometry/MyCG/ConvexHull/GrahamScan/grahamScan.htm
- *
- * Usage:
- *
- * //Create a new instance.
- * var convexHull = new ConvexHullGrahamScan();
- *
- * //add points (needs to be done for each point, a foreach loop on the input array can be used.)
- * convexHull.addPoint(item.lon, item.lat);
- *
- * //getHull() returns the array of points that make up the convex hull.
- * var hullPoints = convexHull.getHull();
+ * @desc An implementation of the Graham's Scan Convex Hull algorithm in Javascript.
+ * @author Brian Barnett, brian@3kb.co.uk, http://brianbar.net/ || http://3kb.co.uk/
+ * @version 1.0.2
  */
-
 function ConvexHullGrahamScan() {
     this.anchorPoint = undefined;
     this.reverse = false;
@@ -180,8 +149,13 @@ ConvexHullGrahamScan.prototype = {
     }
 };
 
+// EXPORTS
+
 if (typeof define === 'function' && define.amd) {
     define(function() {
         return ConvexHullGrahamScan;
     });
+}
+if (typeof module !== 'undefined') {
+    module.exports = ConvexHullGrahamScan;
 }
