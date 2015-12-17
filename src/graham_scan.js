@@ -1,8 +1,8 @@
 /**
  * Graham's Scan Convex Hull Algorithm
- * @desc An implementation of the Graham's Scan Convex Hull algorithm in Javascript.
+ * @desc An implementation of the Graham's Scan Convex Hull algorithm in JavaScript.
  * @author Brian Barnett, brian@3kb.co.uk, http://brianbar.net/ || http://3kb.co.uk/
- * @version 1.0.2
+ * @version 1.0.3
  */
 function ConvexHullGrahamScan() {
     this.anchorPoint = undefined;
@@ -48,12 +48,15 @@ ConvexHullGrahamScan.prototype = {
         if (this.anchorPoint === undefined) {
             //Create new anchorPoint.
             this.anchorPoint = new this.Point(x, y);
-
+            return;
             // Sets anchorPoint if point being added is further left.
-        } else if (this.anchorPoint.y > y || (this.anchorPoint.y == y && this.anchorPoint.x > x)) {
-            this.anchorPoint.y = y;
-            this.anchorPoint.x = x;
-            this.points.unshift(new this.Point(x, y));
+        } else if (
+            (this.anchorPoint.y > y && this.anchorPoint.x > x) ||
+            (this.anchorPoint.y === y && this.anchorPoint.x > x) ||
+            (this.anchorPoint.y > y && this.anchorPoint.x === x)
+        ) {
+            this.points.push(new this.Point(this.anchorPoint.x, this.anchorPoint.y));
+            this.anchorPoint = new this.Point(x, y);
             return;
         }
 
@@ -97,7 +100,7 @@ ConvexHullGrahamScan.prototype = {
 
         }
 
-        return false;
+        return true;
     },
 
     getHull: function () {
@@ -114,6 +117,7 @@ ConvexHullGrahamScan.prototype = {
 
         //If there are less than 4 points, joining these points creates a correct hull.
         if (pointsLength < 4) {
+            points.unshift(this.anchorPoint);
             return points;
         }
 
@@ -138,6 +142,13 @@ ConvexHullGrahamScan.prototype = {
 
             if (points.length == 0) {
                 if (pointsLength == hullPoints.length) {
+                    //check for duplicate anchorPoint edge-case, if not found, add the anchorpoint as the first item.
+                    var ap = this.anchorPoint;
+                    if (!hullPoints.some(function(p){
+                            return(p.x == ap.x && p.y == ap.y);
+                        })) {
+                        hullPoints.unshift(this.anchorPoint);
+                    }
                     return hullPoints;
                 }
                 points = hullPoints;

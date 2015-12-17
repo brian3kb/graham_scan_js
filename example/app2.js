@@ -153,6 +153,7 @@ function initialize() {
 
         //Convert to google latlng objects
         hullPoints = hullPoints.map(function (item) {
+            console.log('x:'+item.x + ', y:' + item.y);
             return new google.maps.LatLng(item.y, item.x);
         });
 

@@ -4,12 +4,12 @@ test('Add a single new point',2 , function() {
     var testGSHull = new ConvexHullGrahamScan();
 
     testGSHull.addPoint(11, 50);
-    console.log(testGSHull.points[0]);
+    console.log(testGSHull.anchorPoint);
     console.log(new testGSHull.Point(11, 50));
-    equal(testGSHull.points[0], new testGSHull.Point(11, 50),
+    equal(testGSHull.anchorPoint, new testGSHull.Point(11, 50),
         'Tests a point has been added to the points array correctly.');
     testGSHull.addPoint(10, 50);
-    equal(testGSHull.points[0], new testGSHull.Point(10, 50),
+    equal(testGSHull.anchorPoint, new testGSHull.Point(10, 50),
         'Tests that same y value then checks x value for comparison.');
 });
 
@@ -63,8 +63,8 @@ test('Polar angle point comparison check.',3, function(){
         'Check if last point added results in a concave.');
 
     equal(testGSHull._checkPoints( {'y' : '48.1', 'x' : '11.1'},
-                                   {'y' : '48.1', 'x' : '11.1'},
-                                   {'y' : '48.1', 'x' : '11.1'}),
+                                   {'y' : '48.1', 'x' : '-11.1'},
+                                   {'y' : '-48.1', 'x' : '11.1'}),
         false,
         'Check if last point added results in a concave.');
 });
@@ -133,9 +133,40 @@ test('Test handling 4 points rectangular.',1, function(){
     testGSHull.anchorPoint = {'y':50.157913235507706,'x':29.900512524414125};
     testGSHull.points = [
         {'y' : '50.157913235507706', 'x' : '29.900512524414125'},
+        {'y' : '50.15791323550770611', 'x' : '31.146087475586'},
         {'y' : '50.74029471119741', 'x' : '31.146087475586'},
-        {'y' : '50.74029471119741', 'x' : '29.900512524414125'},
-        {'y' : '50.15791323550770611', 'x' : '31.146087475586'}
+        {'y' : '50.74029471119741', 'x' : '29.900512524414125'}
+    ];
+
+    equal(testGSHull.getHull(), expectedHull, 'Check output hull is as expected.');
+});
+
+test('that collinear points sharing the same polar angle are removed from resultant hull.',1, function(){
+    var expectedHull = [
+        {'y':-5,'x':-5},
+        {'y':-5,'x':5},
+        {'y':5,'x':5},
+        {'y':5,'x':-5}
+    ];
+    var testGSHull = new ConvexHullGrahamScan();
+    testGSHull.anchorPoint = {'y':-5,'x':-5};
+    testGSHull.points = [
+        {'y' : '2', 'x' : '2'},
+        {'y' : '-2', 'x' : '2'},
+        {'y' : '-2', 'x' : '-2'},
+        {'y' : '2', 'x' : '-2'},
+        {'y' : '3', 'x' : '3'},
+        {'y' : '-3', 'x' : '3'},
+        {'y' : '-3', 'x' : '-3'},
+        {'y' : '3', 'x' : '-3'},
+        {'y' : '4', 'x' : '4'},
+        {'y' : '-4', 'x' : '4'},
+        {'y' : '-4', 'x' : '-4'},
+        {'y' : '4', 'x' : '-4'},
+        {'y' : '5', 'x' : '5'},
+        {'y' : '-5', 'x' : '5'},
+        {'y' : '-5', 'x' : '-5'},
+        {'y' : '5', 'x' : '-5'}
     ];
 
     equal(testGSHull.getHull(), expectedHull, 'Check output hull is as expected.');
