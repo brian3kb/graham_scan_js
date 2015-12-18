@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <title>Graham's Scan Canvas Example</title>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="../css/pure-min.css">
     <link rel="stylesheet" href="../css/stylesheet.css">
-    <title>JavaScript Graham's Scan Convex Hull Algorithm - Google Maps Example 4</title>
+    <title>JavaScript Graham's Scan Convex Hull Algorithm - HTML Canvas (Example 5)</title>
 </head>
 <body>
 <aside>
@@ -21,8 +24,8 @@
             <li><a href="../pages/gmaps_example1.html">One</a></li>
             <li><a href="../pages/gmaps_example2.html">Two</a></li>
             <li><a href="../pages/gmaps_example3.html">Three</a></li>
-            <li class="pure-menu-selected"><a href="../pages/gmaps_example4.html">Four</a></li>
-            <li><a href="../pages/canvas_example5.html">Five</a></li>
+            <li><a href="../pages/gmaps_example4.html">Four</a></li>
+            <li class="pure-menu-selected"><a href="../pages/canvas_example5.html">Five</a></li>
             <li class="pure-menu-heading">Usage + Download</li>
             <li><a href="../index.html">Usage + About</a></li>
             <li><a href="http://raw.github.com/brian3kb/graham_scan_js/master/graham_scan.min.js">Download minified js</a></li>
@@ -35,11 +38,11 @@
 </aside>
 
 <main>
-    <div id="map-canvas"></div>
+    <canvas id="hullCanvas" height="800" width="800"></canvas>
 </main>
-</body>
 
+</body>
 <script src="../src/graham_scan.min.js"></script>
-<script src="app4.js"></script>
+<script src="app5.js"></script>
 
 </html>

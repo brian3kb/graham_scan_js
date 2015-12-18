@@ -4,10 +4,12 @@ body {
     color: #777;
     width: 100%;
     height: 100%;
+    min-height: 700px;
+    overflow-x: hidden;
 }
 
 aside {
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
     max-width: 350px;
@@ -68,6 +70,7 @@ html, body {
 
 #map-canvas, #map_canvas {
     height: 100%;
+    min-height: 700px;
     font-size: 11px;
 }
 
