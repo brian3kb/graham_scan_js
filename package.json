@@ -1,6 +1,6 @@
 {
   "name": "graham_scan",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Implementation of the Graham Scan algorithm to calculate a convex hull from a given array of x, y coordinates.",
   "license": "MIT",
   "directories": {
