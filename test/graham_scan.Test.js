@@ -73,13 +73,28 @@ test('Polar angle point comparison check.',3, function(){
 module('hull scan');
 
 test('Test handling less than 4 points.',1, function(){
+    var expectedHull = [{'y' : '48.1', 'x' : '11.1'},
+        {'y' : '48.8', 'x' : '11.3'},
+        {'y' : '48.7833', 'x' : '11.2333'}];
     var testGSHull = new ConvexHullGrahamScan();
     testGSHull.anchorPoint = {'y' : '48.1', 'x' : '11.1'};
     testGSHull.points = [{'y' : '48.1', 'x' : '11.1'},
-                        {'y' : '48.7833', 'x' : '11.2333'},
-                        {'y' : '48.8', 'x' : '11.3'}];
+                         {'y' : '48.8', 'x' : '11.3'},
+                         {'y' : '48.7833', 'x' : '11.2333'}];
 
-    equal(testGSHull.getHull(), testGSHull.points, 'Check same array is returned.');
+    equal(testGSHull.getHull(), expectedHull, 'Check same array is returned.');
+});
+
+test('Test handling 4 points including a concave point.',1, function(){
+    var expectedHull = [{"y":211.41796875,"x":29.2265625},{"y":214.66796875,"x":53.6015625},{"y":223.25,"x":30}];
+    var testGSHull = new ConvexHullGrahamScan();
+    testGSHull.anchorPoint = {'y' : 223.25, 'x' : 30};
+    testGSHull.points = [{'y' : 223.25, 'x' : 30},
+        {'y' : 214.66796875, 'x' : 53.6015625},
+        {'y' : 213.79296875, 'x' : 38.6015625},
+        {'y' : 211.41796875, 'x' : 29.2265625}];
+
+    equal(testGSHull.getHull(), expectedHull, 'Check output hull is as expected (4 points inc 1 concave).');
 });
 
 test('Test hull calculation.',1,function(){

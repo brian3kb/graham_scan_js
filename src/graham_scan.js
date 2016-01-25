@@ -2,7 +2,7 @@
  * Graham's Scan Convex Hull Algorithm
  * @desc An implementation of the Graham's Scan Convex Hull algorithm in JavaScript.
  * @author Brian Barnett, brian@3kb.co.uk, http://brianbar.net/ || http://3kb.co.uk/
- * @version 1.0.3
+ * @version 1.0.4
  */
 function ConvexHullGrahamScan() {
     this.anchorPoint = undefined;
@@ -21,8 +21,13 @@ ConvexHullGrahamScan.prototype = {
 
     _findPolarAngle: function (a, b) {
         var ONE_RADIAN = 57.295779513082;
-        var deltaX = (b.x - a.x);
-        var deltaY = (b.y - a.y);
+        var deltaX, deltaY;
+
+        //if the points are undefined, return a zero difference angle.
+        if (!a || !b) return 0;
+
+        deltaX = (b.x - a.x);
+        deltaY = (b.y - a.y);
 
         if (deltaX == 0 && deltaY == 0) {
             return 0;
@@ -115,8 +120,8 @@ ConvexHullGrahamScan.prototype = {
         points = this._sortPoints();
         pointsLength = points.length;
 
-        //If there are less than 4 points, joining these points creates a correct hull.
-        if (pointsLength < 4) {
+        //If there are less than 3 points, joining these points creates a correct hull.
+        if (pointsLength < 3) {
             points.unshift(this.anchorPoint);
             return points;
         }
@@ -144,6 +149,8 @@ ConvexHullGrahamScan.prototype = {
                 if (pointsLength == hullPoints.length) {
                     //check for duplicate anchorPoint edge-case, if not found, add the anchorpoint as the first item.
                     var ap = this.anchorPoint;
+                    //remove any udefined elements in the hullPoints array.
+                    hullPoints = hullPoints.filter(function(p) { return !!p; });
                     if (!hullPoints.some(function(p){
                             return(p.x == ap.x && p.y == ap.y);
                         })) {
