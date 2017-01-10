@@ -49,23 +49,20 @@ ConvexHullGrahamScan.prototype = {
     },
 
     addPoint: function (x, y) {
-        //Check to see if anchorPoint has been defined yet.
-        if (this.anchorPoint === undefined) {
-            //Create new anchorPoint.
-            this.anchorPoint = new this.Point(x, y);
-            return;
-            // Sets anchorPoint if point being added is further left.
-        } else if (
-            (this.anchorPoint.y > y && this.anchorPoint.x > x) ||
-            (this.anchorPoint.y === y && this.anchorPoint.x > x) ||
-            (this.anchorPoint.y > y && this.anchorPoint.x === x)
-        ) {
-            this.points.push(new this.Point(this.anchorPoint.x, this.anchorPoint.y));
-            this.anchorPoint = new this.Point(x, y);
-            return;
-        }
+        //Check for a new anchor
+        var newAnchor =
+            (this.anchorPoint === undefined) ||
+            ( this.anchorPoint.y > y ) ||
+            ( this.anchorPoint.y === y && this.anchorPoint.x > x );
 
-        this.points.push(new this.Point(x, y));
+        if ( newAnchor ) {
+            if ( this.anchorPoint !== undefined ) {
+                this.points.push(new this.Point(this.anchorPoint.x, this.anchorPoint.y));
+            }
+            this.anchorPoint = new this.Point(x, y);
+        } else {
+            this.points.push(new this.Point(x, y));
+        }
     },
 
     _sortPoints: function () {
