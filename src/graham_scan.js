@@ -2,7 +2,7 @@
  * Graham's Scan Convex Hull Algorithm
  * @desc An implementation of the Graham's Scan Convex Hull algorithm in JavaScript.
  * @author Brian Barnett, brian@3kb.co.uk, http://brianbar.net/ || http://3kb.co.uk/
- * @version 1.0.4
+ * @version 1.0.5
  */
 function ConvexHullGrahamScan() {
     this.anchorPoint = undefined;
