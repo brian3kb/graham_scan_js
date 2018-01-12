@@ -6,10 +6,10 @@ This implementation just takes the x,y coordinates, no other libraries are neede
 
 These four examples show how to utilise with Google Maps:
 
-[Example 1](https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example1.html)
-[Example 2](https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example2.html)
-[Example 3](https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example3.html)
-[Example 4](https://dl.dropboxusercontent.com/u/26246816/graham_scan/example/gmaps_example4.html)
+[Example 1](http://brian3kb.github.io/graham_scan_js/pages/gmaps_example1.html)
+[Example 2](http://brian3kb.github.io/graham_scan_js/pages/gmaps_example2.html)
+[Example 3](http://brian3kb.github.io/graham_scan_js/pages/gmaps_example3.html)
+[Example 4](http://brian3kb.github.io/graham_scan_js/pages/gmaps_example4.html)
 
 View [GitHub pages](http://brian3kb.github.io/graham_scan_js)
 
